@@ -21,7 +21,6 @@ r2=[]
 r3=[]
 r4=[]
 real = [r1,r2,r3,r4]
-#i=0;i<4;i++
 for i in range(0, 4):
     for j in arr:
         if(j == num1[i]):
@@ -60,12 +59,13 @@ for n in enumnums:
     if(bImp):
         imp.append(n)
 '''
+all_in_real=list(set(r1+r2+r3+r4))
 imp=[]
-for n in real:
-    for nn in n:
-        if nn not in enumnums:
-            imp.append(nn)
-
+for n in arr:
+    if n not in all_in_real:
+        imp.append(n)
+#imp=[n for n in arr if n not in all_in_real]
+#imp=list(set(all_in_real) ^ set(arr))
 print("正确密码不可能出现的数字:")
 print(imp)
 print("\n")
