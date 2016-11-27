@@ -12,8 +12,10 @@ num3=[1,3,5,8]
 num4=[3,8,2,5]
 num5=[2,5,3,1]
 allnum=[num1,num2,num3,num4,num5]
+print("arr=",arr)
+print("\n")
 print("原始输入:")
-print(allnum)
+print("allnum=",allnum)
 print("\n")
 #获取密码每一位的可能数字集合
 r1=[]
@@ -60,14 +62,20 @@ for n in enumnums:
         imp.append(n)
 '''
 all_in_real=list(set(r1+r2+r3+r4))
-imp=[]
-for n in arr:
-    if n not in all_in_real:
-        imp.append(n)
+print("all_in_real=",all_in_real)
+print("\n")
+#imp=[]
+#for n in arr:
+#    if n not in all_in_real:
+#        imp.append(n)
 #imp=[n for n in arr if n not in all_in_real]
 #imp=list(set(all_in_real) ^ set(arr))
+
+#arr中有而all_in_real中没有的
+imp=list(set(arr).difference(set(all_in_real)))
+
 print("正确密码不可能出现的数字:")
-print(imp)
+print("imp=",imp)
 print("\n")
 
 #每个密码有两个正确数字 筛选出密码的4个数字（还无法确定顺序）每个输入密码于[3，5]求差集
@@ -75,11 +83,10 @@ final_arr=[]
 for input_num in allnum:
     temp = list(set(input_num).difference(set(imp)))
     #得到两个数字的list说明这两个数字肯定是密码中的数字
-    
     if(2 == len(temp)):
         final_arr = list(set(final_arr + temp))
 print("密码的4位无顺序数字:")
-print(final_arr)
+print("final_arr=",final_arr)
 print("\n")
 
 #根据密码可能数字集合 在加上密码取值范围 整理出密码(确定顺序)
